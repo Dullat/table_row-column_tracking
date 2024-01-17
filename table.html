@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Example</title>
+    <style>
+        table,
+        tr,
+        td,
+        th {
+            border: 1px solid;
+            border-collapse: collapse;
+        }
+
+        th {
+            text-transform: capitalize;
+            background-color: aqua;
+        }
+
+        td {
+            padding-inline: .5rem;
+            text-transform: lowercase;
+        }
+
+        tr:hover {
+            background-color: aqua;
+        }
+
+        .childs {
+            height: 20px;
+            aspect-ratio: 1;
+            background-color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <colgroup>
+            <col class="st" />
+        </colgroup>
+        <tr>
+            <th>c-1</th>
+            <th>c-2</th>
+            <th>c-3</th>
+            <th>c-4</th>
+            <th>c-5</th>
+            <th>c-6</th>
+            <th>c-7</th>
+            <th>c-8</th>
+            <th>c-9</th>
+            <th>c-10</th>
+        </tr>
+        <tr>
+            <td class="no">Data 11</td>
+            <td>Data 12</td>
+            <td>Data 13</td>
+            <td>Data 14</td>
+            <td>Data 15</td>
+            <td>Data 16</td>
+            <td>Data 17</td>
+            <td>Data 18</td>
+            <td>Data 19</td>
+            <td>Data 20</td>
+        </tr>
+        <tr>
+            <td>Data 21</td>
+            <td>Data 22</td>
+            <td>Data 23</td>
+            <td>Data 24</td>
+            <td>Data 25</td>
+            <td>Data 26</td>
+            <td>Data 27</td>
+            <td>Data 28</td>
+            <td>Data 29</td>
+            <td>Data 30</td>
+        </tr>
+        <tr>
+            <td>Data 31</td>
+            <td>Data 32</td>
+            <td>Data 33</td>
+            <td>Data 34</td>
+            <td>Data 35</td>
+            <td>Data 36</td>
+            <td>Data 37</td>
+            <td>Data 38</td>
+            <td>Data 39</td>
+            <td>Data 40</td>
+        </tr>
+        <tr>
+            <td>Data 41</td>
+            <td>Data 42</td>
+            <td>Data 43</td>
+            <td>Data 44</td>
+            <td>Data 45</td>
+            <td>Data 46</td>
+            <td>Data 47</td>
+            <td>Data 48</td>
+            <td>Data 49</td>
+            <td>Data 50</td>
+        </tr>
+        <tr>
+            <td>Data 51</td>
+            <td>Data 52</td>
+            <td>Data 53</td>
+            <td>Data 54</td>
+            <td>Data 55</td>
+            <td>Data 56</td>
+            <td>Data 57</td>
+            <td>Data 58</td>
+            <td>Data 59</td>
+            <td>Data 60</td>
+        </tr>
+        <tr>
+            <td>Data 61</td>
+            <td>Data 62</td>
+            <td>Data 63</td>
+            <td>Data 64</td>
+            <td>Data 65</td>
+            <td>Data 66</td>
+            <td>Data 67</td>
+            <td>Data 68</td>
+            <td>Data 69</td>
+            <td>Data 70</td>
+        </tr>
+        <tr>
+            <td>Data 71</td>
+            <td>Data 72</td>
+            <td>Data 73</td>
+            <td>Data 74</td>
+            <td>Data 75</td>
+            <td>Data 76</td>
+            <td>Data 77</td>
+            <td>Data 78</td>
+            <td>Data 79</td>
+            <td>Data 80</td>
+        </tr>
+        <tr>
+            <td>Data 81</td>
+            <td>Data 82</td>
+            <td>Data 83</td>
+            <td>Data 84</td>
+            <td>Data 85</td>
+            <td>Data 86</td>
+            <td>Data 87</td>
+            <td>Data 88</td>
+            <td>Data 89</td>
+            <td>Data 90</td>
+        </tr>
+        <tr>
+            <td>Data 91</td>
+            <td>Data 92</td>
+            <td>Data 93</td>
+            <td>Data 94</td>
+            <td>Data 95</td>
+            <td>Data 96</td>
+            <td>Data 97</td>
+            <td>Data 98</td>
+            <td>Data 99</td>
+            <td>Data 100</td>
+        </tr>
+    </table>
+
+    <div class="test-parent-div">
+        <div class="childs"></div>
+        <div class="childs"></div>
+        <div class="childs"></div>
+        <div class="childs"></div>
+        <div class="childs"></div>
+        <div class="childs"></div>
+        <div class="childs"></div>
+        <div class="childs"></div>
+        <div class="childs"></div>
+        <div class="childs"></div>
+    </div>
+    <p>just exploring <cite>child-parent</cite> relation in js <br>
+    going from child to parent then manuplating child elements also using <cite>nth-child</cite> through js</p>
+
+    <script>
+        // console.log("ytfuyhgfhhjh");
+        const td = document.querySelectorAll('td');
+
+        td.forEach(element => {
+            element.addEventListener('mouseover', () => {
+                const parentTr = element.parentNode;
+                const childNumber = Array.from(parentTr.children).indexOf(element);
+
+                document.querySelectorAll(`tr td:nth-child(${childNumber + 1})`).forEach(td => {
+                    td.style.backgroundColor = 'aqua';
+                });
+            });
+            element.addEventListener('mouseleave', () => {
+                document.querySelectorAll('tr td').forEach(td => {
+                    td.style.background = '';
+                })
+            })
+        });
+    </script>
+    <script>
+        const ch = document.querySelectorAll('.childs');
+        const parentDiv = document.querySelector('.test-parent-div');
+
+        ch.forEach(element => {
+            element.addEventListener('click', () => {
+                const parentOfChilds = element.parentNode;
+                const childDivNumber = Array.from(parentDiv.children).indexOf(element);
+                // console.log(childDivNumber);
+                document.querySelectorAll(`.test-parent-div .childs:nth-child(${childDivNumber + 1})`).forEach(element => {
+                    ch.forEach(element => {
+                        element.style.background = 'aqua';
+                    });
+                    element.style.background = 'red';
+                })
+            })
+        });
+    </script>
+
+</body>
+
+</html>
