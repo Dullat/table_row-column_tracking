@@ -8,3 +8,6 @@ js: learning in progress
 ### div strip
 * manuplating child divs:
   child->parent->child-element
+
+### visit
+<a href="https://github.com/dullat/table_row-column_tracking" target="_blank">here</a>
